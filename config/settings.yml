@@ -1,0 +1,15 @@
+user:
+  name:
+    max_length: 50
+  email:
+    max_length: 255
+  password:
+    min_length: 6
+  avatar_size:
+    small: 50
+users:
+  per_page: 10
+password_reset_expired: 2
+microposts:
+  per_page: 5
+  image_max_size_mb: 5

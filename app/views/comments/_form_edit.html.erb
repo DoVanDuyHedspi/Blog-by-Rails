@@ -1,0 +1,23 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content text-dark">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Edit comment</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <%= form_for @comment_edit, remote: true do |f| %>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <%= f.hidden_field :micropost_id, value: @micropost.id %>
+          <%= f.text_area :content, placeholder: "Content...", class: "form-control", id: "comment-text" %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button>
+        <%= f.submit "Save", class: "btn btn-primary mb-0 col-2" %>
+      </div>
+    <% end %>
+  </div>
+</div>

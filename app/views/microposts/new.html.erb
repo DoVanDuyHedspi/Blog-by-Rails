@@ -1,0 +1,22 @@
+<div class="row">
+  <aside class="col-md-12">
+    <section class="user_info">
+      <%= render "shared/user_info" %>
+    </section>
+    <section class="stats">
+      <%= render "shared/stats" %>
+    </section>
+    <section class="micropost_form">
+      <%= render "shared/micropost_form" %>
+    </section>
+  </aside>
+  <div class="col-md-12">
+    <% if @microposts.any? %>
+      <h3><%= t("microposts") %> (<%= @microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= paginate @microposts, theme: "twitter-bootstrap-4" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="media mb-4 cmt_<%= comment.id %>">
+  <div class="d-flex mr-3 rounded-circle">
+    <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
+  </div>
+  <div class="media-body">
+    <h5 class="mt-0"><%= comment.user.name %></h5>
+    <span class="cmt_content_<%= comment.id %>"><%= comment.content %></span>
+  </div>
+  <% if logged_in? %>
+    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+      <% if current_user.current_user? comment.user %>
+        <%= link_to "Edit", edit_comment_path(comment), class: "dropdown-item", remote: true %>
+      <% end %>
+      <% if current_user.current_user? @micropost.user %>
+        <%= link_to t("delete"), comment, class: "dropdown-item",
+         method: :delete, data: { confirm: t("confirm_destroy")
+         }, remote: true %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+

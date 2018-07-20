@@ -1,0 +1,72 @@
+<% provide :title, t("home") %>
+<div id="stage" class="py-5 mb-5">
+  <div id="stage-caption">
+    <h1 class="display-3">Welcome to Viblo</p>
+    <% if logged_in? %>
+      <%= link_to "Create new post", post_path,
+        class: "btn btn-lg btn-success"
+       %>
+    <% else %>
+      <%= link_to t("sign_up_now"), signup_path, class: "btn btn-lg btn-success"
+       %>
+    <% end %>
+  </div>
+</div>
+<% if @feed_items.any? %>
+  <% @feed_items.each do |feed| %>
+    <ol class="p-0">
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <div class="card flex-md-row mb-4 box-shadow">
+            <% if feed.id%2 == 0 %>
+              <%= image_tag feed.picture.url,
+                class: "card-img-right flex-auto
+                  d-none d-md-block" if feed.picture?
+              %>
+            <% end %>
+            <div class="card-body col-md-8 d-flex
+              flex-column align-items-start">
+              <h3 class="mb-0">
+                <%= link_to feed.title, feed, class: "text-dark" %>
+              </h3>
+              <span class="card-text mb-auto text-dark">
+                <%= truncate(feed.content, length: 200, omission: "...") %>
+                <%= link_to " read more", feed %></span>
+              <div class="post-footer d-flex align-items-center">
+                <a href="#" class="author d-flex align-items-center flex-wrap">
+                  <div class="avatar">
+                    <%= link_to gravatar_for(feed.user,
+                      size: Settings.user.avatar_size.small), feed.user %>
+                  </div>
+                  <div class="title">
+                    <span><%= link_to feed.user.name, feed.user %></span>
+                  </div>
+                </a>
+                <div class="date">
+                  <i class="icon-clock"></i>
+                  <%= time_ago_in_words(feed.created_at) %>
+                </div>
+                <div class="comments">
+                  <i class="icon-comment"></i><%= feed.comments.count %>
+                    comments
+                </div>
+              </div>
+            </div>
+            <% if feed.id%2 == 1 %>
+              <%= image_tag feed.picture.url,
+                class: "card-img-right flex-auto
+                  d-none d-md-block" if feed.picture?
+              %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </ol>
+  <% end %>
+  <%= paginate @feed_items, theme: "twitter-bootstrap-4" %>
+<% end %>
+
+
+
+
+

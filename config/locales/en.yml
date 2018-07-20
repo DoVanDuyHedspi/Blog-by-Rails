@@ -1,0 +1,89 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+  home: "Home"
+  help: "Help"
+  about: "About"
+  contact: "Contact"
+  signup: "Sign up"
+  login: "Log in"
+  sign_up_now: "Sign up now!"
+  no_user_warning: "Couldn't find this user!"
+  welcome: "Welcome to Sample App!"
+  name: "Name"
+  email: "Email"
+  password: "Password"
+  confirmation: "Confirmation"
+  create_account: "Create my account"
+  users: "Users"
+  account: "Account"
+  profile: "Profile"
+  settings: "Settings"
+  logout: "Logout"
+  invalid_login: "Invalid email/password combination"
+  remember_me: "Remember me"
+  edit_user: "Edit user"
+  save_changes: "Save changes"
+  profile_updated: "Profile updated"
+  logged_in_user: "Please log in"
+  all_users: "All users"
+  delete: "Delete"
+  confirm_destroy: "You sure?"
+  user_deleted: "User deleted"
+  cannot_delete: "Delete user fails!"
+  account_activated: "Account activated!"
+  invalid_activation_link: "Invalid activation link"
+  invalid_login: "Invalid email/password combination"
+  account_not_activated: "Account not activated. Check your email for the activation link."
+  please_check_email: "Please check your email to activate your account."
+  forgot_password: "forgot password"
+  sent_email_reset_password: "Email sent with password reset instructions"
+  email_not_found: "Email address not found"
+  reset_password: "Reset password"
+  update_password: "Update password"
+  can_not_be_empty: "Can't be empty"
+  password_has_been_reset: "Password has been reset"
+  password_reset_has_expired: "Password reset has expired"
+  submit: "Submit"
+  micropost_created: "Micropost created!"
+  micropost_deleted: "Micropost deleted!"
+  alert_choose_smaller_file: "Please choose a smaller file."
+  micropost_feed: "Micropost feed"
+  follow: "Follow"
+  unfollow: "Unfollow"
+  view_my_profile: "view my profile"
+  following: "Following"
+  followers: "Followers"
+  microposts: "Microposts"
+  compose_new_micropost: "Compose new micropost..."
+  create_post: "Create post"
