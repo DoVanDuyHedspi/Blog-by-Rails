@@ -105,6 +105,5 @@ Rails.application.configure do
 
   host = "https://secure-reaches-74981.herokuapp.com"
   config.action_mailer.default_url_options = { host: host, protocol: "http" }
-
   config.action_mailer.perform_caching = false
 end

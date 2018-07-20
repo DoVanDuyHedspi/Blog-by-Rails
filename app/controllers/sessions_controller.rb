@@ -1,5 +1,10 @@
 class SessionsController < ApplicationController
-  def new; end
+  def new
+    if logged_in?
+      redirect_to root_url
+      flash[:warning] = t("you_have_already_logged_in")
+    end
+  end
 
   def create
     user = User.find_by email: params[:session][:email].downcase

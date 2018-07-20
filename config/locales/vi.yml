@@ -66,6 +66,7 @@ vi:
   can_not_comment: "Lỗi, bình luận không thành công"
   can_not_update_comment: "Lỗi, chỉnh sửa bình luận không thành công"
   read_more: " đọc thêm"
+  you_have_already_logged_in: "Bạn đã đăng nhập"
   datetime:
     distance_in_words:
       about_x_hours:
