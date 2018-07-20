@@ -5,8 +5,6 @@ ruby "2.5.1"
 
 gem "rails", "~> 5.2.0"
 
-gem "sqlite3"
-
 gem "sidekiq", "~> 5.1", ">= 5.1.3"
 
 gem "puma", "~> 3.11"
@@ -49,6 +47,11 @@ gem "toastr-rails", "~> 1.0", ">= 1.0.3"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "sqlite3"
+end
+
+group :production do
+  gem "pg"
 end
 
 group :development do
