@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.create comment_params
     unless @comment
-      flash[:danger] = "Can't comment"
+      flash[:error] = t("can_not_comment")
     end
     @micropost = @comment.micropost
     respond_to do |format|
@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
     @id = @comment.id
     # @comment.update_attributes comment_params
     unless @comment.update_attributes comment_params
-      flash[:danger] = "Can't update comment"
+      flash[:error] = t("can_not_update_comment")
     end
     @cmt_updated = Comment.find @id
     respond_to do |format|

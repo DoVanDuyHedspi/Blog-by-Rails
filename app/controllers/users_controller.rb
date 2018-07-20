@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     if @user.destroy
       flash[:success] = t("user_deleted")
     else
-      flash[:danger] = t("cannot_delete")
+      flash[:error] = t("cannot_delete")
     end
     redirect_to users_url
   end

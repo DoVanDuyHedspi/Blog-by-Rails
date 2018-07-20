@@ -1,27 +1,23 @@
 <div class="row">
   <div class="col-lg-8">
     <h1 class="mt-4"><%= @micropost.title %></h1>
-    <p class="lead">
-      by
-      <%= link_to @user.name, @user %>
-    </p>
     <hr>
-    <p>Posted on <%= @micropost.created_at %></p>
+    <p><%= t("posted_on") %> <%= time_ago_in_words(@micropost.created_at) %></p>
     <hr>
     <%= image_tag @micropost.picture.url, class: "w-100
       rounded" if @micropost.picture? %>
     <hr>
     <p class="lead"><%= @micropost.content %></p>
     <blockquote class="blockquote">
-      <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">Someone famous in
-        <cite title="Source Title">Source Title</cite>
+      <footer class="blockquote-footer">
+        <%= t("posted_by") %>
+        <cite title="Source Title"><%= link_to @user.name, @user %></cite>
       </footer>
     </blockquote>
     <hr>
     <% if logged_in? %>
       <div class="card my-4">
-        <h5 class="card-header text-dark">Leave a Comment:</h5>
+        <h5 class="card-header text-dark"><%= t("comment") %></h5>
         <div class="card-body">
           <%= render "comments/form" %>
         </div>
@@ -39,7 +35,8 @@
     <div class="card my-4">
       <h5 class="card-header text-dark"><%= link_to @user.name, @user %></h5>
       <div class="card-body text-dark">
-        <p>Has <%= @user.microposts.count %> microposts</p>
+        <p><%= t("has") + " " + @user.microposts.count.to_s + " " +
+          t("microposts").downcase %></p>
         <%= render "users/follow_form" if logged_in? %>
       </div>
     </div>

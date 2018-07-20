@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         redirect_to root_url
       end
     else
-      flash.now[:danger] = t("invalid_login")
+      flash.now[:error] = t("invalid_login")
       render :new
     end
   end

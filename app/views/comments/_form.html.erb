@@ -2,8 +2,8 @@
   <%= render "shared/error_messages", object: f.object %>
   <div class="field">
     <%= f.hidden_field :micropost_id, value: @micropost.id %>
-    <%= f.text_area :content, placeholder: "Content...",
+    <%= f.text_area :content, placeholder: t("content")+"...",
       class: "form-control", id: "comment_field",  required: true %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary"%>
+  <%= f.submit t("post"), class: "btn btn-primary"%>
 <% end %>
